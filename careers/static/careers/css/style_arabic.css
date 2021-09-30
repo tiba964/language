@@ -10053,9 +10053,14 @@ padding-right: 30px;
 .featured-block-two .image-box img{
 	display: block;
 	width:100%;	
-	/* height: 100px; */
+	padding-top: 50px;
+	padding-left: 100px;
+	padding-right: 100px;
+	text-align: center;
+	height: 200px;
 	border-radius:5px 5px 0px 0px;
 }
+
 
 
 .featured-block-two .inner-box .lower-content{
