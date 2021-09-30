@@ -86,17 +86,16 @@
                             <li><a href="{% url 'jobs:volunteer' %}">{% trans "JOIN US AS VOLUNTEER" %}</a></li>
                           </ul>
                         </li>
-                        <li><a href="{% url 'jobs:contact' %}">{% trans "CONTACT US" %}</a></li>
+                        <!-- <li><a href="{% url 'jobs:contact' %}">{% trans "CONTACT US" %}</a></li> -->
 
-                        <li class="dropdown"><a href="{% url 'jobs:get_involved' %}">{% trans "LANGUAGE" %}</a>
-                          <ul>
+                      
                             {% load i18n %}
                             {% get_current_language as LANGUAGE_CODE %}
                             {% get_available_languages as LANGUAGES %}
                             {% get_language_info_list for LANGUAGES as languages %}
                             {% for lang in languages %}
                             <li><a href="/{{lang.code}}/">{{lang.name_local}}</a></li>
-                            {% endfor %}                           </ul>
+                            {% endfor %}                         
                         </li>
                                               
                     </ul>
