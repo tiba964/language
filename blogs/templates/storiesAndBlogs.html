@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+      <section class="page-banner">
+        {% for i in data %}
+        <div class="image-layer" style="background-image: url('{{i.bg_image_story_bloag}}')"></div>
+      
+        {% endfor %}
+      <div class="auto-container">
+           <h2>{% trans "STORIES & BLOGS" %}</h2>
+         </div>
+
+        <div class="breadcrumb-box">
+          <div class="auto-container">
+            <ul class="bread-crumb clearfix">
+              <li><a href="{% url 'jobs:index' %}">{% trans "HOME" %}</a></li>
+              <li class="active">{% trans "STORIES & BLOGS" %}</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!--End Banner Section -->
+    
+      <section class="causes-section alternate">
+        <div class="auto-container">
+      
+         
+                      
+          <div class="row clearfix">
+          
+              <!--Cause Block-->
+              <div class="cause-block alternate col-lg-4 col-md-6 col-sm-12">
+                  <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+                      <div class="image-box">
+                          <figure class="image"><a href="{% url 'blogs:story' %}">  {% for i in data %}
+                            <img src="{{i.image_bg_stories}}"  alt="">
+                            {% endfor %}   </a></figure>
+                          <div class="progress-box">
+                              <div class="bar">
+                                  <div class="bar-inner count-bar" data-percent="100%"></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="lower-content">
+                          <h3><a href="{% url 'blogs:story' %}">{% trans "OUR STORIES" %}</a></h3>
+                          {% for i in data %}
+                          <div class="text"> {% if LANGUAGE_CODE == 'en' %} {{ i.text_bg_stories }}
+                            {% elif LANGUAGE_CODE == 'ar' %}  {{ i.text_bg_stories_ar }} {% endif %}</div>
+                          {% endfor %}                          </div>
+                  </div>
+              </div>
+              
+              <!--Cause Block-->
+              <div class="cause-block alternate col-lg-4 col-md-6 col-sm-12">
+                  <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+                      <div class="image-box">
+                          <figure class="image"><a href="cause-single.html">  {% for i in data %}
+                            <img src="{{i.image_bg_blogs}}"  height="250px" alt="">
+                           {% endfor %}</a></figure>
+                          <div class="progress-box">
+                              <div class="bar">
+                                  <div class="bar-inner count-bar" data-percent="100%"></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="lower-content">
+                          <h3><a href="{% url 'blogs:blogs' %}"  height="250px"  >{% trans "OUR BLOGS" %}</a></h3>
+                          {% for i in data %}
+                          <div class="text">{% if LANGUAGE_CODE == 'en' %} {{ i.text_bg_blogs }}
+                            {% elif LANGUAGE_CODE == 'ar' %}  {{ i.text_bg_blogs_ar }} {% endif %}</div>
+                          {% endfor %} </div>                          </div>
+                  </div>
+              </div>
+              
+              
+          </div>
+          
+      </div>
+  </section>
+
+   
+    {% endblock body %}

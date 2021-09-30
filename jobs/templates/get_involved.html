@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Page Banner Section -->
+<section class="page-banner">
+  {% for i in data %}
+  <div class="image-layer" style="background-image: url('{{i.image_bg_getInvolved}}')"></div>
+
+  {% endfor %}
+  <div class="auto-container">
+    <h2>{% trans "Spread The Love & Get Involved!" %}</h2>
+    <div class="text">{% trans "Join Us To Save The World Of Humanitarian And Feel Happy To Support" %}</div>
+
+  </div>
+
+  <div class="breadcrumb-box">
+    <div class="auto-container">
+      <ul class="bread-crumb clearfix">
+        <li><a href="{% url 'jobs:index' %}" style="font-size: 12px">{% trans "HOME" %}</a></li>
+        <li class="active">{% trans "GET INVOLVED" %}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--End Banner Section -->
+
+<section class="featured-section center" style="padding-top:80px">
+
+  <div class="auto-container">
+
+    <div class="featured-row" >
+      <div class="row clearfix">
+
+        <!--Featured Block Two-->
+        <div class="featured-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0ms">
+          <div class="inner-box">
+            <div class="image-box">
+              <figure class="image"><a href="{% url 'careers:career_list' %}">
+                  {% for i in data %}
+                  <img src="{{i.image_careers_getinvolved}}" height="250px"  alt="">
+
+                </a></figure>
+            </div>
+            <div class="lower-content">
+              <h3><a href="{% url 'careers:career_list' %}">{% trans "CAREERS" %}</a></h3>
+              <div class="text">{% if LANGUAGE_CODE == 'en' %}{{i.text_careers_getinvolved}}
+                {% elif LANGUAGE_CODE == 'ar' %}{{i.text_careers_getinvolved_ar}}{% endif %} </div>
+
+              <div class="link-box"><a href="{% url 'careers:career_list' %}" class="theme-btn btn-style-four"><span
+                    class="btn-title">{% trans "Discover Our Careers" %}</span></a></div>
+            </div>
+          </div>
+        </div>
+
+        <!--Featured Block Two-->
+        <div class="featured-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
+          <div class="inner-box">
+            <div class="image-box">
+              <figure class="image"><a href="{% url 'jobs:volunteer' %}">
+                  {% for i in data %}
+                  <img src="{{i.image_joinus_getinvolved}}"  width="260px" height="260px" alt="" >{% endfor %}
+                </a></figure>
+            </div>
+            <div class="lower-content">
+              <h3><a href="{% url 'jobs:volunteer' %}">{% trans "JOIN US AS VOLUNTEER" %}</a></h3>
+              <div class="text">{% if LANGUAGE_CODE == 'en' %}{{i.text_joinus_getinvolved}}
+                {% elif LANGUAGE_CODE == 'ar' %}{{i.text_joinus_getinvolved_ar}}{% endif %} </div>
+              {% endfor %}
+              <div class="link-box"><a href="{% url 'jobs:volunteer' %}" class="theme-btn btn-style-four"><span
+                    class="btn-title">{% trans "Join Us" %}</span></a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+
+{% endblock body %}

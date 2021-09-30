@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+   <!-- End Main Header -->
+  <!-- Page Banner Section -->
+  <section class="page-banner">
+    {% for i in data %}
+    <div class="image-layer" style="background-image: url('{{i.image_bg_whoweare}}')"></div>
+  
+    {% endfor %}
+  
+   
+
+      <div class="auto-container">
+        <h3>{% trans "WHO WE ARE" %}</h3>
+      </div>
+
+  <div class="breadcrumb-box">
+    <div class="auto-container">
+      <ul class="bread-crumb clearfix">
+        <li><a href="{% url 'jobs:index' %}" style="font-size: 12px">{% trans  "HOME" %}</a></li>
+
+        <li class="active"><a href="{% url 'blogs:teams' %}"></a> {% trans  "ABOUT AIFRD" %}</li>
+      </ul>
+    </div>
+  </div>
+  </section>
+  <!--End Banner Section -->
+<!--Causes Section-->
+<section class="career-section-two alternate-two" style="padding-bottom:40px;padding-top:40px">
+  
+    <div class="auto-container">
+      <div class="lower-box story-details who_we_are">
+                            <h3 style="padding-bottom:40px;font-size: 20px;">{% trans "Ashor Iraqi Foundation for Relief and Development" %}</h3>
+                            <div class="info-box clearfix">
+                           
+                                    
+                            </div>
+                          
+                        </div>
+     <div class="row clearfix">
+                                
+                                </div>
+                                {% for i in data %}
+     <div class="post-content">
+                               
+                                <p>{% if LANGUAGE_CODE == 'en' %}{{i.WhoWeAre_desc1}}
+                                  {% elif LANGUAGE_CODE == 'ar' %}{{i.WhoWeAre_desc1_ar}}{% endif %}
+                                </p>
+                                <p>{% if LANGUAGE_CODE == 'en' %}{{i.WhoWeAre_desc1}}
+                                  {% elif LANGUAGE_CODE == 'ar' %}{{i.WhoWeAre_desc1_ar}}{% endif %}  </p>
+                                
+                                 </div>
+                             
+                    
+        <div class="row clearfix"  style="padding-top:40px">
+        
+            <div class="cause-block alternate col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+                    <div class="image-box">  
+                        <figure class="image"><img src="{{ i.WhoWeAre_image1 }}" height="300px"  alt=""></figure>
+                        
+                    </div>
+                   
+                </div>
+            </div>
+               <div class="cause-block alternate col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+                    <div class="image-box">
+                        <figure class="image"><img src="{{ i.WhoWeAre_image2 }}" height="300px"  alt=""></figure>
+                        
+                    </div>
+                   
+                </div>
+            </div>
+               <div class="cause-block alternate col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInUp" data-wow-delay="0ms">
+                    <div class="image-box">
+                        <figure class="image"><img src="{{ i.WhoWeAre_image3 }}" height="300px"  alt=""></figure>
+                        
+                    </div>
+                   
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="news-block-three">
+          <div class="inner-box">
+              <div class="text">  {% if LANGUAGE_CODE == 'en' %}{{i.WhoWeAre_desc3}}
+                {% elif LANGUAGE_CODE == 'ar' %}{{i.WhoWeAre_desc3_ar}}{% endif %}  </div>
+          </div>
+      </div>
+        <p>{% if LANGUAGE_CODE == 'en' %}{{i.WhoWeAre_desc5}}
+          {% elif LANGUAGE_CODE == 'ar' %}{{i.WhoWeAre_desc5_ar}}{% endif %} </p>
+        <p>{% if LANGUAGE_CODE == 'en' %}{{i.WhoWeAre_desc6}}
+          {% elif LANGUAGE_CODE == 'ar' %}{{i.WhoWeAre_desc6_ar}}{% endif %} </p>                                
+
+    
+    </div>   {% endfor %}
+</section>
+{% endblock body %}

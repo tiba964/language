@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+   <!-- End Main Header -->
+
+   <!-- Page Banner Section -->
+   <section class="page-banner">
+    {% for i in data %}
+    <div class="image-layer" style="background-image: url('{{i.bg_image_blog}}')"></div>
+  
+    {% endfor %}
+  <!-- <div class="auto-container">
+       <h1>BLOGS</h1>
+     </div> -->
+
+     <div class="breadcrumb-box">
+       <div class="auto-container">
+         <ul class="bread-crumb clearfix">
+           <li><a href="{% url 'jobs:index' %}">{% trans "HOME" %}</a></li>
+           <li class="active"> {% trans "BLOGS" %}</li>
+         </ul>
+       </div>
+     </div>
+   </section>
+   <!--End Banner Section -->
+   <div class="blog-section  " style="padding-top:30px">
+    <div class="auto-container">
+        <div class="row clearfix " style="padding-top: 50px;">
+          {% for i in data %}
+            <!--Content Side / Blog Detail-->
+            <div class="content-side col-lg-4 col-md-6 col-sm-12">
+                <div class="blog-posts">
+                    <!--News Block Two-->
+                    <div class="blog-block-two">
+                        <div class="inner-box">
+                          <div class="image-box">
+                            <figure class="image"> <img src="{{i.blogs_image}}"  width="350px" height="300px"alt=""></figure>
+                            
+                        </div>
+                            
+                          
+                            <div class="lower-box">
+                              <h3 style="font-size:18px; padding-bottom:10px;padding-top:10px;"> {% if LANGUAGE_CODE == 'en' %} {{ i.blogs_title }}
+                                {% elif LANGUAGE_CODE == 'ar' %}  {{ i.blogs_title_ar }} {% endif %} </h3>
+                              <div class="text"> {% if LANGUAGE_CODE == 'en' %} {{ i.blogs_desc }}
+                                {% elif LANGUAGE_CODE == 'ar' %}  {{ i.blogs_desc_ar }} {% endif %} </div>
+                              <div class="bottom-box clearfix">
+                                    <div class="post-meta">
+                                        <div class="info-box clearfix">
+                                            <div class="cause-info">
+                                                <ul class="clearfix">
+                                                  <li><span class="far flaticon-calendar"></span> {{i.blogs_date}}</li>
+                                                  <li><span class="fa fa-map-marker-alt"></span> {% if LANGUAGE_CODE == 'en' %} {{ i.blogs_location }}
+                                                    {% elif LANGUAGE_CODE == 'ar' %}  {{ i.blogs_location_ar }} {% endif %}  </li>
+                                               </ul>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                 
+            </div>
+            <!--End Content Side-->
+
+         
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock body %}
+
+
